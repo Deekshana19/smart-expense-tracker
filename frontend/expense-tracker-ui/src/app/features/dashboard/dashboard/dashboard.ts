@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { DashboardService } from '../../../services/dashboard-service';
@@ -12,9 +12,9 @@ export class Dashboard implements OnInit {
 
   private dashboardService = inject(DashboardService);
 
-  totalExpenses = 0;
-  expenseCount = 0;
-  topCategory = 'N/A';
+  totalExpenses = signal(0);
+  expenseCount = signal(0);
+  topCategory = signal('N/A');
 
   ngOnInit(): void {
     this.loadDashboard();
@@ -24,12 +24,12 @@ export class Dashboard implements OnInit {
 
     this.dashboardService.getTotalExpenses()
       .subscribe(res => {
-        this.totalExpenses = res.total_expenses;
+        this.totalExpenses.set(res.total_expenses ?? 0);
       });
 
     this.dashboardService.getExpenseCount()
       .subscribe(res => {
-        this.expenseCount = res.count;
+        this.expenseCount.set(res.count ?? 0);
       });
 
     this.dashboardService.getCategorySummary()
@@ -44,7 +44,7 @@ export class Dashboard implements OnInit {
                 : current
           );
 
-          this.topCategory = highest.category;
+          this.topCategory.set(highest.category);
         }
       });
   }
