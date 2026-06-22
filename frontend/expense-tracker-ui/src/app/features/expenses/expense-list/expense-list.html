@@ -1,0 +1,11 @@
+<h2>Expenses</h2>
+
+<p>Total Records: {{ expenses.length }}</p>
+
+@for (expense of expenses; track expense.id) {
+  <div>
+    {{ expense.id }} -
+    {{ expense.category }} -
+    ₹{{ expense.amount }}
+  </div>
+}
