@@ -1,1 +1,98 @@
-<p>add-expense works!</p>
+<div class="max-w-3xl mx-auto">
+
+  <div class="bg-white rounded-2xl shadow p-8">
+
+    <h1 class="text-3xl font-bold mb-8">
+      Add Expense
+    </h1>
+
+    <form
+      [formGroup]="expenseForm"
+      (ngSubmit)="onSubmit()"
+      class="space-y-6"
+    >
+
+      <div>
+        <label class="block mb-2 font-medium">
+          Amount
+        </label>
+
+        <input
+          type="number"
+          formControlName="amount"
+          class="w-full border rounded-lg p-3"
+        />
+      </div>
+
+      <div>
+        <label class="block mb-2 font-medium">
+          Category
+        </label>
+
+        <select
+          formControlName="category"
+          class="w-full border rounded-lg p-3"
+        >
+          <option value="">Select</option>
+          <option>Food</option>
+          <option>Transport</option>
+          <option>Shopping</option>
+          <option>Bills</option>
+          <option>Entertainment</option>
+          <option>Health</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="block mb-2 font-medium">
+          Payment Method
+        </label>
+
+        <select
+          formControlName="payment_method"
+          class="w-full border rounded-lg p-3"
+        >
+          <option value="">Select</option>
+          <option>Cash</option>
+          <option>UPI</option>
+          <option>Credit Card</option>
+          <option>Debit Card</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="block mb-2 font-medium">
+          Date
+        </label>
+
+        <input
+          type="date"
+          formControlName="expense_date"
+          class="w-full border rounded-lg p-3"
+        />
+      </div>
+
+      <div>
+        <label class="block mb-2 font-medium">
+          Description
+        </label>
+
+        <textarea
+          rows="4"
+          formControlName="description"
+          class="w-full border rounded-lg p-3"
+        ></textarea>
+      </div>
+
+      <button
+        type="submit"
+        class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700"
+      >
+        Save Expense
+      </button>
+
+    </form>
+
+  </div>
+
+</div>

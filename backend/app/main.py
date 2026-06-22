@@ -4,6 +4,7 @@ from app.routes.expense_routes import router as expense_router
 from app.database.database import Base, engine
 from app.models.expense import Expense
 from fastapi.middleware.cors import CORSMiddleware
+from app.routes.dashboard_routes import router as dashboard_router
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
@@ -20,6 +21,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 app.include_router(expense_router)
+app.include_router(dashboard_router)
 @app.get("/")
 def home():
     return {"message": "Smart Expense Tracker Backend Running"}

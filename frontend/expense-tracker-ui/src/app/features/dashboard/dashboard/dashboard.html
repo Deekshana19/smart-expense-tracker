@@ -1,1 +1,41 @@
-<p>dashboard works!</p>
+<div>
+
+  <h1 class="text-3xl font-bold mb-8">
+    Dashboard
+  </h1>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+    <div class="bg-white rounded-2xl shadow p-6">
+      <p class="text-slate-500">
+        Total Expenses
+      </p>
+
+      <h2 class="text-4xl font-bold mt-2">
+        ₹{{ totalExpenses }}
+      </h2>
+    </div>
+
+    <div class="bg-white rounded-2xl shadow p-6">
+      <p class="text-slate-500">
+        Transactions
+      </p>
+
+      <h2 class="text-4xl font-bold mt-2">
+        {{ expenseCount }}
+      </h2>
+    </div>
+
+    <div class="bg-white rounded-2xl shadow p-6">
+      <p class="text-slate-500">
+        Top Category
+      </p>
+
+      <h2 class="text-4xl font-bold mt-2">
+        {{ topCategory }}
+      </h2>
+    </div>
+
+  </div>
+
+</div>

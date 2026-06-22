@@ -1,12 +1,17 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { ExpenseListComponent } from './features/expenses/expense-list/expense-list';
+import { RouterOutlet, RouterLink } from '@angular/router';
+import { Header } from './core/header/header';
+import { Sidebar } from './core/sidebar/sidebar';
 @Component({
   selector: 'app-root',
-  imports: [ExpenseListComponent],
+  imports: [
+    RouterOutlet,
+    Header,
+    Sidebar,
+
+  ],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  protected title = 'expense-tracker-ui';
 }
